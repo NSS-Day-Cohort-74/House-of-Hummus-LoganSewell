@@ -56,10 +56,10 @@ sequenceDiagram
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Should transient state be represented in a database diagram? Why, or why not?
-   > Your answer here
-2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > Your answer here
+   > The transient state should not be included in a database diagram because it represents temporary data rather than persistent data. In the application, once the data is submitted, the transient state is cleared of all information.
+2. In the **FoodTruck** module, you are **await**ing the invocation of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
+   > The `async` keyword makes a function return a promise, essentially acting as a placeholder for a value that is not yet available. The `await` keyword pauses the execution of the function until the promise is resolved, allowing it to wait for an outcome before continuing. Without `await`, the function runs without pausing, so when an asynchronous task like `fetch` is inside the function, it won't wait for the task to complete. As a result, the promise will not resolve in time, and the function will return a promise object instead of the expected value.
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
-   > Your answer here
+   > When a radio button is selected, the `change` event is triggered, invoking a function. Within that function, we can retrieve the selected value. This value is then passed as an argument to another function, which assigns it to an object that temporarily stores it.
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > Your answer here
+   > The `map()` method is typically cleaner and requires less code, while also being faster. It automatically creates a new array as a copy, leaving the original array unchanged. On the other hand, a `for...of` loop is more manual, requiring you to initialize and handle values yourself. In this case, when looping through data like an entree, using `map()` is more efficient since it eliminates the need for extra steps, such as using `join()` to convert the data back into a string.
